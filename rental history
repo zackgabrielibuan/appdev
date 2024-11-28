@@ -1,0 +1,159 @@
+import React, { useState } from "react";
+import "./rentalHistory.css";
+
+const RentalHistory = () => {
+  const [rentalHistory, setRentalHistory] = useState([
+    {
+      id: 1,
+      carModel: "Toyota Camry",
+      rentalPeriod: "2023-06-10 to 2023-06-15",
+      status: "Completed",
+    },
+    {
+      id: 2,
+      carModel: "Honda Civic",
+      rentalPeriod: "2023-05-01 to 2023-05-05",
+      status: "Cancelled",
+    },
+    {
+      id: 3,
+      carModel: "Ford Mustang",
+      rentalPeriod: "2023-04-15 to 2023-04-20",
+      status: "Completed",
+    },
+  ]);
+  const [filter, setFilter] = useState("All");
+
+  const deleteRental = (id) => {
+    setRentalHistory(rentalHistory.filter((rental) => rental.id !== id));
+  };
+
+  const filteredHistory =
+    filter === "All"
+      ? rentalHistory
+      : rentalHistory.filter((rental) => rental.status === filter);
+
+  return (
+    <div className="rental-history-container">
+      <h1>Car Rental History</h1>
+
+      <div className="filter-container">
+        <label htmlFor="filter">Filter by status:</label>
+        <select
+          id="filter"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        >
+          <option value="All">All</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div className="rental-list">
+        {filteredHistory.length > 0 ? (
+          filteredHistory.map((rental) => (
+            <div key={rental.id} className="rental-item">
+              <p>
+                <strong>Car Model:</strong> {rental.carModel}
+              </p>
+              <p>
+                <strong>Rental Period:</strong> {rental.rentalPeriod}
+              </p>
+              <p>
+                <strong>Status:</strong> {rental.status}
+              </p>
+              <button
+                className="delete-button"
+                onClick={() => deleteRental(rental.id)}
+              >
+                Delete
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>No rental history available.</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default RentalHistory;
+
+
+
+
+.rental-history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-container label {
+  font-size: 16px;
+  color: #555;
+}
+
+.filter-container select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.rental-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rental-item {
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rental-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.rental-item strong {
+  color: #333;
+}
+
+.delete-button {
+  align-self: flex-end;
+  padding: 8px 12px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
