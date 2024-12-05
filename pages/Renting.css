@@ -1,0 +1,33 @@
+.renting-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-container img {
+    width: 400px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rent-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.back-button {
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}

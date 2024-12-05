@@ -1,0 +1,31 @@
+/* App.css or global CSS file */
+
+/* Ensure the entire app occupies the full viewport */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper for main content and footer */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Main content area */
+main {
+  flex: 1; /* Push the footer to the bottom */
+}
+
+/* Footer styling */
+footer {
+  background-color: #333; /* Footer background color */
+  color: #fff; /* Footer text color */
+  text-align: center;
+  padding: 10px 0;
+  position: relative; /* Remove 'absolute' or 'fixed' positioning */
+  width: 100%;
+}

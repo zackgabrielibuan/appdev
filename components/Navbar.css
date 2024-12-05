@@ -1,0 +1,62 @@
+/* Style the navbar container */
+.navbar {
+    background-color: #ffffff; /* White background for the navbar */
+    padding: 15px 30px; /* Increased padding for more space */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Deeper shadow for a more prominent navbar */
+    position: sticky; /* Makes navbar stick to the top when scrolling */
+    top: 0;
+    z-index: 1000; /* Ensures navbar stays above other content */
+}
+
+/* Style the unordered list */
+.navbar-list {
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+/* Style each list item */
+.navbar-item {
+    margin: 0 25px; /* Increased spacing between items */
+}
+
+/* Style the links */
+.navbar-item a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Darker text color for better readability */
+    font-size: 1.1rem; /* Adjust font size for better readability */
+    font-weight: 600; /* Slightly bold text */
+    text-transform: uppercase; /* Uppercase text for professional appearance */
+    letter-spacing: 1px; /* Adds spacing between letters for a clean, modern look */
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease; /* Smooth transition effects */
+}
+
+/* Hover effect for links */
+.navbar-item a:hover {
+    color: #ff5733; /* Highlight color */
+    transform: scale(1.1); /* Slightly scale up the link on hover */
+    letter-spacing: 1.5px; /* Adds more spacing when hovered */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar-list {
+        flex-direction: column; /* Stack navbar items vertically on mobile */
+        align-items: center; /* Center the items when stacked */
+    }
+
+    .navbar-item {
+        margin: 15px 0; /* Add spacing between items when stacked */
+    }
+
+    .navbar-item a {
+        font-size: 1rem; /* Slightly smaller font size for mobile */
+    }
+}
